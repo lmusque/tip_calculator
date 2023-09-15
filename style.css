@@ -1,0 +1,330 @@
+:root {
+	--dark-teal: #3d6666;
+	--dark-green-background: #00474b; /* including bill & selected tip &resetbtn */
+	--teal: #26c2ae; /* including input border hover*/
+	--white: #ffffff;
+	--main-background: #c5e4e7;
+	--icon-color: #9ebbbd;
+	--left-div-p-titles: #5e7a7d;
+	--input-background: #f3f9fa; /* including custom tip background */
+	--custom-tip-txt: #547878;
+	--person-left-div-txt: #7f9d9f;
+	--btn-select: #9fe8df; /*including selecting tips*/
+	--input-validation-txt: #e17457;
+	--input-error-border: #e17052;
+	--font: "Courier New", Courier, monospace;
+}
+
+/* TODO: when inputs are selected, keep the focus on */
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	font-family: var(--font);
+	/* needs to be space mono for later */
+}
+
+form {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	align-content: center;
+	background-color: var(--main-background);
+	height: 100vh;
+}
+
+.top {
+	margin-top: 5.19rem;
+	width: 3.31rem;
+	height: 5.38rem;
+	color: var(--dark-teal);
+}
+.bottom {
+	background-color: #e17052;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 57.5rem;
+	height: 30.06rem;
+	flex-shrink: 0;
+	border-radius: 1.5625rem;
+	background: #fff;
+	box-shadow: 0px 32px 43px 0px rgba(79, 166, 175, 0.2);
+
+	/* margin: 19, 16.25, 14.94, 16.25rem; */
+}
+/* input divs */
+.billInputDiv,
+.pplInputDiv {
+	width: 23.6875rem;
+	height: 3rem;
+	flex-shrink: 0;
+	border-radius: 0.3125rem;
+	border-style: none;
+	background: var(--input-background);
+}
+
+/* TODO:STYLE BUTTON WHEN EMPTY */
+button {
+	background-color: var(--teal);
+	color: var(--dark-green-background);
+	text-align: center;
+	font-size: 1.25rem;
+	font-style: normal;
+	font-weight: 700;
+	line-height: normal;
+	width: 20.8125rem;
+	height: 3rem;
+	flex-shrink: 0;
+	border-radius: 0.3125rem;
+	border-style: none;
+	margin-bottom: 2.5rem;
+	/* style margins */
+}
+
+button:hover {
+	background-color: var(--btn-select);
+	cursor: pointer;
+}
+
+.pplInputDiv:hover,
+.billInputDiv:hover,
+input:hover {
+	cursor: pointer;
+	border-style: solid;
+	border-color: var(--teal);
+}
+.billAmtInput,
+.pplAmtInput {
+	border-style: none;
+	background: var(--input-background);
+}
+.billAmtInput:hover,
+.pplAmtInput:hover {
+	border-style: none;
+	border: none;
+}
+
+/* INPUT SPECIAL STYLING FOR BILL AND PEOPLE AMOUNTS */
+.billInputDiv,
+.pplInputDiv {
+	background: var(--input-background);
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	border-radius: 0.3125rem;
+	border-style: none;
+	line-height: normal;
+}
+
+#pplSVG,
+#moneySVG {
+	width: 1.8125rem;
+	height: 1rem;
+	flex-shrink: 0;
+	padding-left: 0.8rem;
+	fill: var(--icon-color);
+}
+
+/* #billAmtInput,
+#pplAmtInput { */
+.billAmtInput,
+.pplAmtInput {
+	width: 20.5625rem;
+	padding-right: 1rem;
+	color: var(--dark-teal);
+	text-align: right;
+	font-size: 1.5rem;
+	font-style: normal;
+	font-weight: 700;
+	line-height: normal;
+	border-radius: 0.3125rem;
+	border-style: none;
+	outline: none;
+}
+/* P SPECIAL STYLING */
+/* left div p styling */
+#title {
+	color: var(--left-div-p-titles);
+	font-size: 1rem;
+	font-style: normal;
+	font-weight: 700;
+	line-height: normal;
+	margin-bottom: 0.5rem;
+}
+
+/* right div p styling */
+.pTop {
+	color: var(--white);
+	height: 1.5rem;
+	font-size: 1rem;
+	font-style: normal;
+	font-weight: 700;
+	line-height: normal;
+}
+
+.pBottom {
+	color: var(--person-left-div-txt);
+	font-size: 0.8125rem;
+	font-style: normal;
+	font-weight: 700;
+	line-height: normal;
+}
+
+/* BOTTOM LEFT DIVS */
+.bottomLeft {
+	width: 23.6875rem;
+	height: 24.25rem;
+	flex-shrink: 0;
+	/* padding-top: 2.81rem; */
+	margin-left: 2rem;
+}
+
+/* TODO: fix the margins on the left and right */
+.bottomRight {
+	width: 25.8125rem;
+	height: 26.0625rem;
+	flex-shrink: 0;
+	border-radius: 0.9375rem;
+	background-color: var(--dark-green-background);
+	margin-right: 2rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.total {
+	width: 90%;
+}
+.totalLeft {
+	margin-top: 2.5rem;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.tipAmnt {
+	margin-top: 2rem;
+}
+
+.tipContainer {
+	display: flex;
+	width: 23.6875rem;
+	height: 9.5rem;
+	flex-wrap: wrap;
+	gap: 0.5rem;
+}
+/* tip divs */
+.tipNum {
+	width: 7.312rem;
+	height: 3rem;
+	flex-shrink: 0;
+	border-radius: 0.3125rem;
+	background: var(--dark-green-background);
+	color: var(--white);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 1.5rem;
+	font-style: normal;
+	font-weight: 700;
+	line-height: normal;
+	margin-bottom: -2rem;
+}
+
+.tipNum:hover {
+	cursor: pointer;
+	color: var(--dark-green-background);
+	background-color: var(--btn-select);
+	border: none;
+}
+/* custom tip input */
+#customTip {
+	width: 7.3125rem;
+	height: 3rem;
+	flex-shrink: 0;
+	border-radius: 0.3125rem;
+	background: var(--input-background);
+	color: var(--dark-green-background);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 1.5rem;
+	font-style: normal;
+	font-weight: 700;
+	line-height: normal;
+	text-align: right;
+	border-style: none;
+	border: none;
+	outline: none;
+}
+
+#customTip:hover {
+	border: solid var(--teal);
+	text-align: right;
+	outline: none;
+}
+
+/* styling the tip text divs */
+.tipTxt {
+	display: flex;
+	flex-direction: column;
+	/* TODO:fix the margins */
+}
+
+/* AMOUNT OF PEOPLE STYLING */
+.pplContainer {
+	margin-top: 1rem;
+}
+
+.pplText {
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 0.5rem;
+}
+
+#tipAmntPerPerson,
+#totalAmntPerPerson {
+	width: 8rem;
+	height: 4.437rem;
+	text-align: right;
+	color: var(--teal);
+	text-align: right;
+	font-size: 3rem;
+	font-style: normal;
+	font-weight: 700;
+	line-height: normal;
+	letter-spacing: -0.0625rem;
+}
+
+.buttonContainer {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+}
+/* calculate button */
+#calculate {
+	margin-bottom: 0;
+}
+
+/* TODO:THIS NEEDS A CLASS--needs to be invisible when number of ppl is valid (not zero)
+TODO: needs to be visible when number of people is invalid (zero)
+TODO: so two separate styling */
+#toolTip {
+	/* display: none; */
+	z-index: -1;
+}
+
+/* TODO: add class to num of people input to make the border orange when invalid */
+.invalid {
+	z-index: 2;
+	color: var(--input-validation-txt);
+}
+
+.empty {
+	border: solid;
+	border-color: var(--input-validation-txt);
+	background-color: var(--input-background);
+}
