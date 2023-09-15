@@ -3,32 +3,18 @@ let toolTip = document.querySelector("#toolTip");
 //bill and num of ppl input
 const billInput = document.querySelector(".billAmtInput");
 const pplInput = document.querySelector(".pplAmtInput");
-
 //tip selections
-const fivePer = document.querySelector("#five");
-const tenPer = document.querySelector("#ten");
-const fifteenPer = document.querySelector("#fifteen");
-const twentyfivePer = document.querySelector("#twentyfive");
-const fiftyPer = document.querySelector("#fifty");
-
 const tips = document.querySelectorAll(".tipNum");
-
 const customTipInput = document.querySelector("#customTip");
-//buttons
-const calcBtn = document.querySelector("#calculate");
+//button
 const resetBtn = document.querySelector("#reset");
 
 //tip amount and per person amount display
 let totalTipAmnt = document.querySelector("#tipAmntPerPerson");
 let totalBillAmnt = document.querySelector("#totalAmntPerPerson");
 
-//bill amount & ppl number values
-// let billAmnt = parseInt(billInput.value);
-// let numofPpl = parseInt(pplInput.value);
-// let customTip = parseInt(customTipInput.value);
-
 // calculate the amount:
-//1. get the valye of the bill input and value ppl input
+//1. get the value of the bill input and value ppl input
 //2. loop through to get the value of the clicked button
 //3. get the value of the custom tip to calculate
 
@@ -37,13 +23,7 @@ function calcTip() {
 		let billAmnt = parseFloat(billInput.value);
 		let numofPpl = parseFloat(pplInput.value);
 		if (isNaN(billAmnt) || isNaN(numofPpl) || billAmnt <= 0 || numofPpl <= 0) {
-			billInput.classList.add("empty");
-			pplInput.classList.add("empty");
-			toolTip.classList.add("invalid");
-			// totalTipAmnt.textContent = "$right on!";
-			// totalBillAmnt.textContent = "$ok!";
-			totalTipAmnt.textContent = "$0.00";
-			totalBillAmnt.textContent = "$0.00";
+			handleErrors();
 		} else {
 			let tipAmnt = billAmnt * (tip.value / 100);
 			let totalAmnt = billAmnt + tipAmnt;
@@ -55,17 +35,12 @@ function calcTip() {
 	});
 }
 
-// TODO:
 function calcCustomTip() {
 	let billAmnt = parseFloat(billInput.value);
 	let numofPpl = parseFloat(pplInput.value);
 	let customTip = parseInt(customTipInput.value);
 	if (isNaN(billAmnt) || isNaN(numofPpl) || billAmnt <= 0 || numofPpl <= 0) {
-		toolTip.classList.add("invalid");
-		billInput.classList.add("empty");
-		pplInput.classList.add("empty");
-		totalTipAmnt.textContent = "$0.00";
-		totalBillAmnt.textContent = "$0.00";
+		handleErrors();
 	}
 	let tipAmnt = billAmnt * (customTip / 100);
 	let totalAmnt = billAmnt + tipAmnt;
@@ -75,11 +50,6 @@ function calcCustomTip() {
 	totalBillAmnt.textContent = `$${perPersonAmnt.toFixed(2)}`;
 }
 
-customTipInput.addEventListener("keyup", (e) => {
-	if (e.key === "Enter") {
-		calcCustomTip();
-	}
-});
 function handleTipButtonClick() {
 	// customTipInput.value = ""; // Reset custom tip input
 	tips.forEach((tip) => {
@@ -88,6 +58,20 @@ function handleTipButtonClick() {
 	this.classList.add("selected");
 	calcTip();
 }
+
+function handleErrors() {
+	toolTip.classList.add("invalid");
+	billInput.classList.add("empty");
+	pplInput.classList.add("empty");
+	totalTipAmnt.textContent = "$0.00";
+	totalBillAmnt.textContent = "$0.00";
+}
+
+customTipInput.addEventListener("keyup", (e) => {
+	if (e.key === "Enter") {
+		calcCustomTip();
+	}
+});
 
 tips.forEach((tip) => {
 	tip.addEventListener("click", handleTipButtonClick);
