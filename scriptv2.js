@@ -1,5 +1,5 @@
 const form = document.querySelector("form");
-const toolTip = document.querySelector("#toolTip");
+let toolTip = document.querySelector("#toolTip");
 //bill and num of ppl input
 const billInput = document.querySelector(".billAmtInput");
 const pplInput = document.querySelector(".pplAmtInput");
@@ -36,15 +36,14 @@ function calcTip() {
 	tips.forEach((tip) => {
 		let billAmnt = parseFloat(billInput.value);
 		let numofPpl = parseFloat(pplInput.value);
-		// if (billAmnt = '' || isNaN(numofPpl) || billAmnt == 0 || numofPpl == 0) {
-		if ((billAmnt = "" || isNaN(numofPpl) || billAmnt == 0 || numofPpl == 0)) {
-			billAmnt.classList.add("empty");
-			numofPpl.classList.add("empty");
+		if (isNaN(billAmnt) || isNaN(numofPpl) || billAmnt <= 0 || numofPpl <= 0) {
+			billInput.classList.add("empty");
+			pplInput.classList.add("empty");
 			toolTip.classList.add("invalid");
-			totalTipAmnt.textContent = "$right on!";
-			totalBillAmnt.textContent = "$ok!";
-			// totalTipAmnt.textContent = "$0.00";
-			// totalBillAmnt.textContent = "$0.00";
+			// totalTipAmnt.textContent = "$right on!";
+			// totalBillAmnt.textContent = "$ok!";
+			totalTipAmnt.textContent = "$0.00";
+			totalBillAmnt.textContent = "$0.00";
 		} else {
 			let tipAmnt = billAmnt * (tip.value / 100);
 			let totalAmnt = billAmnt + tipAmnt;
@@ -61,17 +60,10 @@ function calcCustomTip() {
 	let billAmnt = parseFloat(billInput.value);
 	let numofPpl = parseFloat(pplInput.value);
 	let customTip = parseInt(customTipInput.value);
-	if (
-		billAmnt === "" ||
-		billAmnt === NaN ||
-		numofPpl === "" ||
-		numofPpl === NaN ||
-		billAmnt === 0 ||
-		numofPpl === 0
-	) {
+	if (isNaN(billAmnt) || isNaN(numofPpl) || billAmnt <= 0 || numofPpl <= 0) {
 		toolTip.classList.add("invalid");
-		billAmnt.classList.add("empty");
-		numofPpl.classList.add("empty");
+		billInput.classList.add("empty");
+		pplInput.classList.add("empty");
 		totalTipAmnt.textContent = "$0.00";
 		totalBillAmnt.textContent = "$0.00";
 	}
