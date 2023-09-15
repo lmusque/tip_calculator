@@ -15,7 +15,6 @@
 	--font: "Courier New", Courier, monospace;
 }
 
-/* TODO: when inputs are selected, keep the focus on */
 * {
 	box-sizing: border-box;
 	margin: 0;
@@ -64,7 +63,6 @@ form {
 	background: var(--input-background);
 }
 
-/* TODO:STYLE BUTTON WHEN EMPTY */
 button {
 	background-color: var(--teal);
 	color: var(--dark-green-background);
