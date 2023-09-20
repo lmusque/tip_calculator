@@ -52,6 +52,21 @@ customTipInput.addEventListener("keyup", (e) => {
 	}
 });
 
+pplInput.addEventListener("keyup", (e) => {
+	if (e.key === "Enter") {
+		calcTip(true);
+	}
+});
+
 tips.forEach((tip) => {
 	tip.addEventListener("click", handleTipButtonClick);
+});
+
+// Reset form
+resetBtn.addEventListener("click", () => {
+	billInput.value = "";
+	pplInput.value = "";
+	customTip.value = "";
+	totalTipAmnt.textContent = "$0.00";
+	totalBillAmnt.textContent = "$0.00";
 });

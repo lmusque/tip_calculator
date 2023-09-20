@@ -261,6 +261,7 @@ input:hover {
 	border-style: none;
 	border: none;
 	outline: none;
+	margin-top: 2rem;
 }
 
 #customTip:hover {
@@ -331,7 +332,6 @@ input:hover {
 	body {
 		display: flex;
 		flex-direction: column;
-
 		margin: auto;
 		width: 100vw;
 		height: 100vh;
@@ -375,6 +375,10 @@ input:hover {
 		margin-right: 0.5rem;
 	}
 
+	.billAmnt {
+		margin-bottom: -5rem;
+	}
+
 	.billAmtInput,
 	.pplAmtInput {
 		width: 16.5625rem;
@@ -382,15 +386,21 @@ input:hover {
 
 	.billInputDiv,
 	.pplInputDiv {
-		height: 3rem;
+		/* height: 3rem; */
 		width: 19.4375rem;
 	}
 
+	.tipNum {
+		margin-bottom: 1rem;
+	}
+	#customTip {
+		margin-top: 0rem;
+	}
 	.tipNum,
 	#customTip {
 		width: 9.16444rem;
 		height: 3rem;
-		gap: 1.5rem;
+		/* gap: 1.5rem; */
 		margin-bottom: 1rem;
 		font-size: 1.5rem;
 		font-style: normal;
@@ -407,13 +417,12 @@ input:hover {
 	}
 	.tipAmnt {
 		width: 90%;
-		height: 10rem;
+		/* height: 10rem; */
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
-		margin-top: -1rem;
-		margin-bottom: 2rem;
+		margin-top: 3rem; /* margin-bottom: 2rem; */
 	}
 	.tipAmnt .title {
 		align-self: flex-start;
@@ -461,6 +470,7 @@ input:hover {
 		position: relative;
 		margin: auto;
 		padding-top: 2rem;
+		/* margin: 0rem; */
 	}
 
 	.pTop {
