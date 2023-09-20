@@ -67,6 +67,9 @@ resetBtn.addEventListener("click", () => {
 	billInput.value = "";
 	pplInput.value = "";
 	customTip.value = "";
+	toolTip.classList.remove("invalid");
+	billInput.classList.remove("empty");
+	pplInput.classList.remove("empty");
 	totalTipAmnt.textContent = "$0.00";
 	totalBillAmnt.textContent = "$0.00";
 });
